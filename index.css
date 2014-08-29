@@ -1,0 +1,311 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family:Arial;
+}
+
+header {
+	background-color: white;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=white,endColorstr=#D8D8D8);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=white,endColorstr=#D8D8D8)";
+	box-shadow: 0 1px 5px -1px #333;
+	-khtml-box-shadow: 0 1px 5px -1px #333;
+	-moz-box-shadow: 0 1px 5px -1px #333;
+	-ms-box-shadow: 0 1px 5px -1px #333;
+	-o-box-shadow: 0 1px 5px -1px #333;
+	-webkit-box-shadow: 0 1px 5px -1px #333;
+	height: 60px;
+	position: fixed;
+	width: 100%;
+	z-index: 50;
+}
+
+#brandLogo {
+	padding: 3px 20px;
+	width: 130px;
+	float: left;
+}
+
+ul {
+	/* @embed */
+	list-style-image: url(http://www.droidwiki.de/skins/droidwiki/images/bullet-icon.png);
+}
+
+#navbar {
+	position: relative;
+	top: 21.5px;
+	margin-left: 170px;
+	display: block;
+}
+
+#navbar a {
+	float: none;
+	font-size: 17px;
+	letter-spacing: .1em;
+	padding: 25px 20px 18px;
+	color: #1a1a1a;
+	text-decoration: none;
+}
+
+#navbar a:hover {
+	float: none;
+	font-size: 17px;
+	letter-spacing: .1em;
+	padding: 30.5px 20px 28px;
+	color: #474747;
+	text-decoration: none;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+}
+
+.content {
+	position: relative;
+	height: 100%;
+	top: 60px;
+	padding: 25px;
+}
+
+#containerMiddle {
+	position: absolute;
+	left: 150px;
+	top: 40px;
+	right: 150px;
+	bottom: 0px;
+	font-size:0.875em;
+}
+
+#containerMiddle h2, #containerMiddle-adfree h2 {
+	border-bottom: 1px solid #aaa;
+}
+
+#heading {
+	border-bottom: 1px solid #aaa;
+	height: auto;
+	min-height: 45px;
+}
+
+#bodyContent {
+	clear:both;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#firstHeading {
+	float:left;
+	font-size: 1.8em;
+}
+
+a:-webkit-any-link {
+	color: -webkit-link;
+	text-decoration: none;
+	cursor: auto;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #0645ad;
+}
+
+ul, menu, dir {
+	display: block;
+	list-style-type: none;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+}
+
+h1, h2 {
+	margin-bottom: .6em;
+}
+
+h2 {
+	font-size: 150%;
+	display: block;
+	font-size: 1.5em;
+	-webkit-margin-before: 0.83em;
+	-webkit-margin-after: 0.83em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: black;
+	background: none;
+	font-weight: normal;
+	margin: 0;
+	overflow: hidden;
+	padding-top: .5em;
+	padding-bottom: .17em;
+	width: auto;
+}
+
+.site-footer {
+	border: 1px solid #dedede;
+}
+
+.site-footer h6 {
+	padding: 0 0 5px 0;
+	color: #222222;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.site-footer .inner {
+	padding: 30px 40px;
+	clear: both;
+	overflow: hidden;
+}
+
+.site-footer .inner ul {
+	margin-left: 0;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+.site-footer .inner li {
+	list-style: none;
+	background: url("http://www.droidwiki.de/skins/androidhilfe/images/li-bullet.png") 0 7px no-repeat;
+	padding-left: 10px;
+	margin-left: 10px;
+	font-size: 14px;
+	line-height: 1.5em;
+}
+
+.site-footer .inner ul.socialIcons {
+	position: relative;
+	top: 0;
+	right: 0;
+	margin-top: 40px;
+	float: right;
+}
+
+.site-footer .inner ul.socialIcons li {
+	float: none;
+	margin-bottom: 10px;
+	background: none !important;
+	margin-left: 0 !important;
+}
+
+.socialIcons li a.googleplusIcon {
+	background-position: -34px 0;
+}
+
+.socialIcons li a {
+	background: url("http://www.droidwiki.de/skins/androidhilfe/images/ico-socials.png") no-repeat;
+	background-position: 0 0;
+	text-indent: -999em;
+	width: 26px;
+	height: 26px;
+	display: block;
+}
+
+.special {
+	margin: 0;
+}
+
+ol {
+	line-height: 1.5em;
+	list-style-image: none;
+	margin: .3em 0 0 3.2em;
+	padding: 0;
+}
+
+.col-4 {
+	width: 33.33333%;
+}
+
+.col-4, .col-8 {
+	float: left;
+}
+
+.footerMenu {
+	background: #D8D8D8;
+	padding: 0 40px;
+	height: 40px;
+	border-top: 1px solid #333;
+	display: block;
+	clear: both;
+	overflow: hidden;
+}
+
+.footerMenu a {
+	color: black;
+}
+
+.footerMenu ul {
+	margin: 0;
+	padding: 0;
+}
+
+.footerMenu ul li {
+	float: left;
+	margin-left: 15px;
+	margin-bottom: .1em;
+	list-style: none;
+	font-size: 14px;
+	background: none;
+	padding-left: 0;
+}
+
+.footerMenu ul li a {
+	padding: 10px;
+	line-height: 40px;
+	font-size: 13px;
+}
+
+.footerMenu p.up {
+	font-size: 14px;
+	float: right;
+}
+
+.footerMenu p.up a {
+	padding: 10px;
+	line-height: 40px;
+	font-size: 13px;
+}
+
+.footerMenu p {
+	margin: 0;
+	font-size: 13px;
+}
+
+#copyright-wrapper {
+	background: none;
+}
+
+.copyright {
+	margin-top: 15px;
+	width: 100%;
+}
+
+.copyright p {
+	float: right;
+	color: #b4b4b4;
+	font-size: 12px;
+}
+
+p {
+	margin: .4em 0 .5em 0;
+	line-height: 1.5em;
+}
+
+#techtext {
+	margin-top: 10px;
+}
+
+.technical {
+	text-align: center;
+	font-size: 0.9em;
+	font-style: italic;
+	padding-bottom: 10px;
+}

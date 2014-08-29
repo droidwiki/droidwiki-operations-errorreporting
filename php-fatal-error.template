@@ -1,0 +1,149 @@
+﻿<html lang="de" dir="ltr" class="client-js">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hier ist etwas schief gelaufen – Android Wiki</title>
+		<style type="text/css">
+			<?php
+				include( 'index.css' );
+			?>
+		</style>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-21207284-8', 'auto');
+			ga('require', 'ecommerce');
+			ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body class="mediawiki ltr">
+		<header>
+			<div id="brandLogo">
+				<a href="http://droidwiki.de/">
+					<img src="http://droidwiki.de/skins/droidwiki/images/androide_orig.png" alt="brandLogo" height="55">
+				</a>
+			</div>
+			<nav id="navbar">
+				<a href="/Hauptseite">Hauptseite</a><a href="/Spezial:Letzte_Änderungen">Letzte Änderungen</a><a href="/Spezial:Zufällige_Seite">Zufällige Seite</a><a href="/Hilfe:Inhaltsverzeichnis">Hilfe</a>
+			</nav>
+
+			<div id="mw-js-message" style="display:none;"></div>
+		</header>
+		<div id="content" class="content">
+			<div id="containerMiddle" class="mw-body" role="main">
+				<div id="heading">
+					<h1 id="firstHeading" class="firstHeading">
+						Hier ist etwas schief gelaufen :(
+					</h1>
+				</div>
+				<section id="bodyContent">
+					<div class="ContentArea">
+						<div id="text" lang="de">
+							<p>Bei den Servern von DroidWiki sind gerade technische Probleme aufgetreten. Bitte versuche es in ein paar Minuten <a href="javascript:" onclick="location.reload(); return false">noch einmal</a>.</p>
+							<p>Du kannst dieses Problem an folgende E-Mail-Adresse melden: <a href="mailto:infodroidwiki.de">info@droidwiki.de</a>.</p>
+							<hr noshade="noshade" size="1px" width="80%" />
+							<div class="technical" id="techtext">
+								Wenn du einem DroidWiki-Systemadministrator diesen Fehler meldest, gib bitte die folgenden Details an.<br/>
+							</div>
+						</div>
+
+						<div class="technical">
+							<bdo dir="ltr">
+								PHP error <?php echo FriendlyErrorType( $errtype ); ?> in <?php echo $errfile; ?> line <?php echo $errline; ?>: <br/>
+								<?php echo $errtext; ?>
+							</bdo>
+							<div id="AdditionalTechnicalStuff"></div>
+						</div>
+					</div>
+				</section>
+				<footer class="site-footer" role="contentinfo">
+					<div class="container">
+						<div class="inner">
+							<div class="col-4">
+								<h6>Beliebte Artikel</h6>
+								<ul>
+									<li><a href="/Muster_vergessen" title="Muster vergessen">Muster vergessen</a></li>
+<li><a href="/Hauptseite" title="Hauptseite">Hauptseite</a></li>
+<li><a href="/ClockWorkMod" title="ClockWorkMod">ClockWorkMod</a></li>
+<li><a href="/Drucken" title="Drucken">Drucken</a></li>
+<li><a href="/Root" title="Root">Root</a></li>
+<li><a href="/Link2SD_einrichten" title="Link2SD einrichten">Link2SD einrichten</a></li>
+<li><a href="/USB-Debugging" title="USB-Debugging">USB-Debugging</a></li>
+<li><a href="/Samsung/Galaxy_S2/Root" title="Samsung/Galaxy S2/Root">Samsung/Galaxy S2/Root</a></li>
+<li><a href="/Android_Debug_Bridge" title="Android Debug Bridge">Android Debug Bridge</a></li>
+<li><a href="/DEODEXED" title="DEODEXED">DEODEXED</a></li>
+								</ul>
+							</div><!-- /col-4 -->
+							<div class="col-4">
+								<h6>auch interessant</h6>
+		<ul>
+<li><a href="/MD5" title="MD5">MD5</a></li>
+<li><a href="/Modding" title="Modding">Modding</a></li>
+<li><a href="/KitKat/Schreibzugriff_Externe_Speicher" title="KitKat/Schreibzugriff Externe Speicher">KitKat/Schreibzugriff Externe Speicher</a></li>
+<li><a href="/HTC/One/rumrunner" title="HTC/One/rumrunner">HTC/One/rumrunner</a></li>
+<li><a href="/Kamera_Klick_entfernen" title="Kamera Klick entfernen">Kamera Klick entfernen</a></li>
+<li><a href="/Entwickleroptionen" title="Entwickleroptionen">Entwickleroptionen</a></li>
+<li><a href="/Google/Nexus_4/Root_und_Unlock" title="Google/Nexus 4/Root und Unlock">Google/Nexus 4/Root und Unlock</a></li>
+<li><a href="/Recoveryinstallation" title="Recoveryinstallation">Recoveryinstallation</a></li>
+<li><a href="/E-Mailkonto_einrichten" title="E-Mailkonto einrichten">E-Mailkonto einrichten</a></li>
+<li><a href="/Kategorie:Rooten" title="Kategorie:Rooten">Kategorie:Rooten</a></li></ul>
+							</div><!-- /col-4 -->
+							<div class="col-4">
+							<ul>
+								<li id="footer-info-lastmod">
+									Diese Seite wurde zuletzt am <?php echo date( "d.m.Y" ); ?> um <?php echo date( "H:i" ); ?> Uhr aktualisiert.
+								</li>
+							</ul>
+							<ul class="socialIcons">
+								<li>
+									<a href="https://plus.google.com/103862846105145420159" target="_blank" class="googleplusIcon">Google Plus</a>
+								</li>
+							</ul>
+							</div><!-- /col-4 -->
+							<div class="col-4">
+
+							</div><!-- /col-4 -->
+						</div><!-- /inner -->
+						<div class="footerMenu">
+							<div class="row">
+								<div class="col-12">
+									<ul>
+										<li id="footer-places-privacy">
+											<a href="/DroidWiki:Impressum#Datenschutz" title="DroidWiki:Impressum">Datenschutz</a>
+										</li>
+										<li id="footer-places-disclaimer">
+											<a href="/DroidWiki:Impressum" title="DroidWiki:Impressum">Impressum</a>
+										</li>
+										<li id="footer-places-tos">
+											<a href="http://droidwiki.de/DroidWiki:TOS">Nutzungsbedingungen</a>
+										</li>
+									</ul>
+									<p class="up">
+										<a href="#top">
+											Nach oben
+										</a>
+									</p>
+								</div>
+							</div>
+						</div><!-- /footerMenu  -->
+					</div><!-- /container -->
+				</footer><!-- #colophon -->
+
+				<div id="copyright-wrapper">
+					<div class="copyright">
+					  <div class="container">
+						<div class="row">
+						  <div class="col-12">
+							<p class="right">© 2014 <a href="http://www.droidwiki.de/" rel="nofollow" title="DroidWiki.de">DroidWiki.de</a> - Alle Rechte vorbehalten | technisch unterstützt durch <a href="http://www.android-hilfe.de/" rel="nofollow" title="Android-Hilfe.de">Android-Hilfe.de</a></p>
+						  </div><!-- /col-sm-12 -->
+						</div><!-- /row -->
+					  </div><!-- /container -->
+					</div><!-- /copyright -->
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
