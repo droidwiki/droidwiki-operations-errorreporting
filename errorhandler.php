@@ -11,10 +11,10 @@
 	 * This function handles fatal errors for DroidWiki
 	 */
 	function handleError( $errtype, $errtext, $errfile, $errline ) {
-		$suppress = array( 8, 2048, 8192, 16384 );
+		$include = array( 1, 4, 16, 256 );
 		$excluded_script = array( '/profileinfo.php' );
 		if (
-			!in_array( $errtype, $suppress ) &&
+			in_array( $errtype, $include ) &&
 			!in_array( $_SERVER['SCRIPT_NAME'], $excluded_script )
 		) {
 			// erase last output
@@ -28,11 +28,11 @@
 	function FriendlyErrorType( $type ) {
 		switch( $type ) {
 			case E_ERROR: // 1 //
-				return 'E_ERROR';
+				return 'Fatal Error';
 			case E_WARNING: // 2 //
 				return 'E_WARNING';
 			case E_PARSE: // 4 //
-				return 'E_PARSE';
+				return 'Parse Error';
 			case E_NOTICE: // 8 //
 				return 'E_NOTICE';
 			case E_CORE_ERROR: // 16 //
