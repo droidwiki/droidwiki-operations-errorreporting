@@ -2,7 +2,14 @@
 	// log errors into file
 	ini_set( "log_errors", E_ALL );
 	ini_set( "display_errors", "Off" );
-	ini_set( "error_log", "/var/www/web20/html/phplog/php.errors.log" );
+	if ( $wmgPHPLogFilePref ) {
+		$name_pre = $wmgPHPLogFilePref;
+	} elseif ( $_SERVER['HTTP_HOST'] ) {
+		$name_pre = $_SERVER['HTTP_HOST'];
+	} else {
+		$name_pre = 'undefined_';
+	}
+	ini_set( "error_log", "/var/www/web20/html/phplog/{$name_pre}php.errors.log" );
 
 	// set our handlers
 	set_error_handler( 'handleError' );
