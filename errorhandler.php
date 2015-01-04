@@ -1,23 +1,42 @@
 <?php
-	// log errors into file
-	ini_set( "log_errors", E_ALL );
-	ini_set( "display_errors", "Off" );
-	if ( $wmgPHPLogFilePref ) {
-		$name_pre = $wmgPHPLogFilePref;
-	} elseif ( $_SERVER['HTTP_HOST'] ) {
-		$name_pre = $_SERVER['HTTP_HOST'];
-	} else {
-		$name_pre = 'undefined_';
-	}
-	ini_set( "error_log", "/var/www/web20/html/phplog/{$name_pre}php.errors.log" );
+class DroidWikiErrorHandler {
+	/** @var string $logFile Errors are logged to this file */
+	private $logFile = null;
+	/** @var string $detailedLog Location of detailed error logs */
+	private $detailedLog = null;
 
-	// set our handlers
-	set_error_handler( 'handleError' );
-	register_shutdown_function( 'shutdownHandler' );
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		global $wgPHPLogFilePref;
+
+		// enable logging for all errors, but do not display them
+		ini_set( "log_errors", E_ALL );
+		ini_set( "display_errors", "Off" );
+
+		// get filename
+		if ( $wgPHPLogFilePref ) {
+			$name_pre = $wgPHPLogFilePref;
+		} elseif ( $_SERVER['HTTP_HOST'] ) {
+			$name_pre = $_SERVER['HTTP_HOST'];
+		} else {
+			$name_pre = 'undefined_';
+		}
+
+		$this->logFile = "/var/www/web20/html/phplog/{$name_pre}php.errors.log";
+		// set error log
+		ini_set( "error_log", $this->logFile );
+
+		// set error handlers
+		set_error_handler( array( $this, 'handleError' ) );
+		register_shutdown_function( array( $this, 'handleShutdown' ) );
+	}
+
 	/**
 	 * This function handles fatal errors for DroidWiki
 	 */
-	function handleError( $errtype, $errtext, $errfile, $errline ) {
+	public function handleError( $errtype, $errtext, $errfile, $errline ) {
 		$include = array( 1, 4, 16, 256 );
 		$excluded_script = array( '/profileinfo.php' );
 		if (
@@ -32,7 +51,97 @@
 		}
 	}
 
-	function FriendlyErrorType( $type ) {
+	/**
+	 * Handles php shutdown and catches errors, if there are any
+	 */
+	public function handleShutdown() {
+		$last_error = error_get_last();
+		if ( !empty( $last_error ) ) {
+			$this->handleError(
+				$last_error['type'],
+				$last_error['message'],
+				$last_error['file'],
+				$last_error['line']
+			);
+		}
+	}
+
+	/**
+	 * Catch an error and logs it to the logfile
+	 */
+	public function catchError( $errtype, $errtext, $errfile, $errline, $additionalInfo = false ) {
+		$date = date( 'd-M-Y H:i:s' );
+		$errorLine = "[" .
+			$date .
+			"] " .
+			$this->FriendlyErrorType( $errtype ) .
+			" " .
+			$errtext .
+			" in " .
+			$errfile .
+			" on line " .
+			$errline .
+			"\n";
+
+		if ( !$handle = fopen( $this->logFile, "a" ) ) {
+			return false;
+		}
+
+		if ( !fwrite( $handle, $errorLine ) ) {
+			return false;
+		}
+		fclose( $handle );
+
+		if ( $additionalInfo ) {
+			$this->detailedLog = "/var/www/web20/html/phplog/details/{$errline}_{$date}.txt";
+			// Collecting additional info and save it separately
+
+			// text to write
+			$text = "";
+
+			// repeat the errorline from logFile
+			$text .= $errorLine;
+			// include stacktrace
+			$text .= $this->getStackTrace() . "\n\n";
+			// get requested URL
+			$text .= "URL: " . $_SERVER["REQUEST_URI"] . "\n";
+			// client ip is helpful, sometimes
+			$text .= "Request IP: " . $_SERVER["REMOTE_ADDR"] . "\n";
+
+			// write it down
+			$file = fopen( $this->detailedLog, "a" );
+			fwrite( $file, $text );
+			fclose( $file );
+		}
+		return true;
+	}
+
+	private function getStackTrace() {
+		$trace = '';
+		foreach (debug_backtrace() as $k => $v) {
+			if ( $k < $ignore ) {
+				continue;
+			}
+
+			array_walk( $v['args'], function ( &$item, $key ) {
+				$item = var_export( $item, true );
+			});
+
+			$trace .= '#' .
+				($k - $ignore) .
+				' ' .
+				$v['file'] .
+				'(' . $v['line'] . '): ' .
+				( isset($v['class']) ? $v['class'] . '->' : '' ) .
+				$v['function'] .
+				'(' . implode(', ', $v['args']) . ')' .
+				"\n";
+		}
+
+		return $trace;
+	}
+
+	public function FriendlyErrorType( $type ) {
 		switch( $type ) {
 			case E_ERROR: // 1 //
 				return 'Fatal Error';
@@ -67,15 +176,6 @@
 		}
 		return "fatal";
 	}
+}
 
-	function shutdownHandler() {
-		$last_error = error_get_last();
-		if ( !empty( $last_error ) ) {
-			handleError(
-				$last_error['type'],
-				$last_error['message'],
-				$last_error['file'],
-				$last_error['line']
-			);
-		}
-	}
+$handler = new DroidWikiErrorHandler;

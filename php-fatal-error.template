@@ -52,7 +52,7 @@
 
 						<div class="technical">
 							<bdo dir="ltr">
-								PHP error <?php echo FriendlyErrorType( $errtype ); ?> in <?php echo $errfile; ?> line <?php echo $errline; ?>: <br/>
+								PHP error <?php echo $this->FriendlyErrorType( $errtype ); ?> in <?php echo $errfile; ?> line <?php echo $errline; ?>: <br/>
 								<?php echo $errtext; ?>
 							</bdo>
 							<div id="AdditionalTechnicalStuff"></div>
