@@ -1,4 +1,7 @@
 <?php
+/**
+ * Errorhandler class for droidwiki.de
+ */
 class DroidWikiErrorHandler {
 	/** @var string $logFile Errors are logged to this file */
 	private $logFile = null;
