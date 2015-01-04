@@ -119,6 +119,10 @@ class DroidWikiErrorHandler {
 		return true;
 	}
 
+	/**
+	 * Returns a stack trace of the actual php stack.
+	 * @return string
+	 */
 	private function getStackTrace() {
 		$trace = '';
 		foreach (debug_backtrace() as $k => $v) {
